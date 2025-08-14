@@ -19,4 +19,4 @@ Permite:
 ---
 
 ## Estructura del Proyecto
-/src Necesarias
+/src -> contiene las clases de Java

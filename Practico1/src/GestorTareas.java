@@ -1,5 +1,11 @@
 package Practico1.src;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class GestorTareas {
@@ -40,6 +46,42 @@ public class GestorTareas {
     public void eliminarTareasCompletadas() {
         tareas.removeIf(t -> t.getEstado() == Tarea.Estado.completada);
         System.out.println("Tareas completadas eliminadas.");
-    }    
-}
+    }
 
+    // Extra
+    public void guardarEnArchivo(String nombreArchivo) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("tareas.txt"))) {
+            for (Tarea tarea : tareas) {
+                writer.println(tarea.toString());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void cargarDesdeArchivo(String nombreArchivo) {
+        tareas.clear();
+        File archivo = new File(nombreArchivo);
+        if (!archivo.exists()) {
+            System.out.println("No hay archivo previo, comenzando con lista vacía.");
+            return;
+        }
+
+        try (BufferedReader br = new BufferedReader(new FileReader(nombreArchivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] partes = linea.split(";");
+                if (partes.length == 2) {
+                    Tarea t = new Tarea(partes[0]);
+                    if (partes[1].equalsIgnoreCase("completada")) {
+                        t.setEstadoCompletada();
+                    }
+                    tareas.add(t);
+                }
+            }
+            System.out.println("Tareas cargadas desde archivo: " + nombreArchivo);
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        }
+    }
+}

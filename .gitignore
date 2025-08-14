@@ -1,0 +1,19 @@
+# Archivos y carpetas de compilación de Java
+/bin/
+out/
+build/
+*.class
+
+# Configuración de Visual Studio Code
+.vscode/
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos generados en tiempo de ejecución
+*.log
+*.tmp
+
+# Archivo de tareas (si no quieres versionarlo)
+tareas.txt

@@ -6,6 +6,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         GestorTareas gestor = new GestorTareas();
 
+        // Cargar tareas al iniciar
+        gestor.cargarDesdeArchivo("tareas.txt");
+
         int opcion;
         do {
             System.out.println("\n===== Menú Gestor de Tareas =====");
@@ -13,7 +16,8 @@ public class Main {
             System.out.println("2. Listar tareas");
             System.out.println("3. Marcar tarea como completada");
             System.out.println("4. Eliminar tareas completadas");
-            System.out.println("5. Salir");
+            System.out.println("5. Guardar tareas en archivo");
+            System.out.println("6. Salir");
             System.out.print("Seleccione una opción: ");
             
             opcion = sc.nextInt();
@@ -25,7 +29,7 @@ public class Main {
                     do {
                         System.out.print("Ingrese la descripción de la tarea: ");
                         descripcion = sc.nextLine();
-                        if (descripcion.trim().isEmpty()) {
+                        if (descripcion.trim().isEmpty()) { //trim() elimina espacios al inicio y al final
                             System.out.println("Error: la descripción no puede estar vacía. Intente de nuevo.");
                         }
                     } while (descripcion.trim().isEmpty());
@@ -53,6 +57,10 @@ public class Main {
                     break;
 
                 case 5:
+                    gestor.guardarEnArchivo("tareas.txt");
+                    break;
+
+                case 6:
                     System.out.println("Saliendo del sistema...");
                     break;
 
