@@ -21,8 +21,14 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-                    System.out.print("Ingrese la descripción de la tarea: ");
-                    String descripcion = sc.nextLine();
+                   String descripcion;
+                    do {
+                        System.out.print("Ingrese la descripción de la tarea: ");
+                        descripcion = sc.nextLine();
+                        if (descripcion.trim().isEmpty()) {
+                            System.out.println("Error: la descripción no puede estar vacía. Intente de nuevo.");
+                        }
+                    } while (descripcion.trim().isEmpty());
                     gestor.agregarTarea(descripcion);
                     break;
 

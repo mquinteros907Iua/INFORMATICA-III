@@ -19,3 +19,4 @@ Permite:
 ---
 
 ## Estructura del Proyecto
+/src Necesarias
