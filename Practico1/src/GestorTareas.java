@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class GestorTareas {
@@ -39,7 +40,7 @@ public class GestorTareas {
             tareas.get(indice).setEstadoCompletada();
             System.out.println("Tarea marcada como completada.");
         } else {
-            System.out.println("Índice inválido.");
+            System.out.println("Indice invalido.");
         }
     }
 
@@ -50,7 +51,7 @@ public class GestorTareas {
 
     // Extra
     public void guardarEnArchivo(String nombreArchivo) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter("tareas.txt"))) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(Paths.get("Practico1/src", "tareas.txt").toFile()))) { // Paths.get() para armar la ruta relativa
             for (Tarea tarea : tareas) {
                 writer.println(tarea.toString());
             }
