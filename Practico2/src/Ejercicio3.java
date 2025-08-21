@@ -2,7 +2,7 @@ package Practico2.src;
 
 import java.util.Scanner;
 
-public class Ejercicio3 { // Suma de elementos de un arreglo
+public class Ejercicio3 { //Suma de elementos de un arreglo
     public static void main(String[] args) {
         Scanner consola = new Scanner(System.in);
         int sumador=0,contador=0;
