@@ -21,13 +21,12 @@ Ordenar alfabéticamente por nombre del cliente (gestión administrativa).
 /gestion-pizzeria
 │
 ├── /src
-│   ├── Main.java               # Punto de entrada del sistema
-│   ├── Pedido.java             # Clase que representa un pedido
-│   ├── Pizzeria.java           # Clase que gestiona los pedidos de la pizzería
-│   ├── Ordenador.java          # Implementación de algoritmos de ordenamiento
-│   └── TiempoOrdenamiento.java # Medición de tiempos de ejecución
-│
-└── README.md                   # Documentación del proyecto
+│   ├── Main.java 
+│   ├── Pedido.java
+│   ├── Pizzeria.java
+│   ├── Ordenador.java
+│   └── TiempoOrdenamiento.java 
+└── README.md      
 
 ## ⚙️ Funcionalidades Principales
 
