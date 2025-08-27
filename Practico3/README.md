@@ -19,7 +19,7 @@ Ordenar por precio total (control contable).
 
 Ordenar alfabéticamente por nombre del cliente (gestión administrativa).
 
-📂 Estructura del Proyecto
+##📂 Estructura del Proyecto
 /gestion-pizzeria
 │
 ├── /src
