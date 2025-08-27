@@ -9,8 +9,10 @@ public class Main {
         Scanner consola = new Scanner(System.in);
         int opcion = 0;
         Pizzeria pizzeria = new Pizzeria();
+        Ordenador ordenador = new Ordenador();
+
         do {
-            System.out.println("Sistema de Gestión de Pedidos en una Pizzería");
+            System.out.println("\nSistema de Gestión de Pedidos en una Pizzería");
             System.out.println("----------------------------------------------");
             System.out.println("Gestión de Pedidos");
             System.out.println("1. Agregar Pedido");
@@ -31,20 +33,21 @@ public class Main {
             switch (opcion) {
                 case 1:
                     pizzeria.agregarPedido(listadoPedidos);
-                    System.out.println("Pedido agregado exitosamente.");
+                    System.out.println("Pedido agregado exitosamente.\n");
+                    pizzeria.mostrarPedidos(listadoPedidos);
                     break;
                 case 2:
                     pizzeria.eliminarPedido(listadoPedidos);
-                    System.out.println("Pedido eliminado exitosamente.");
+                    pizzeria.mostrarPedidos(listadoPedidos);
                     break;
                 case 3:
                     pizzeria.modificarPedido(listadoPedidos);
-                    System.out.println("Pedido modificado exitosamente.");
+                    pizzeria.mostrarPedidos(listadoPedidos);
                     break;
                 case 4:
-                    System.out.println("Ordenar por Tiempo de Preparación (Inserción)");
-                    // Ordenador.insercion(listadoPedidos);
-                    System.out.println("Pedidos ordenados por tiempo de preparación:");
+                    ordenador.ordenarPorTiempoPreparacion(listadoPedidos);
+                    pizzeria.mostrarPedidos(listadoPedidos);
+                    break;
                 default:
                     System.out.println("Opción inválida.\nPor favor, seleccione una opción válida.");
                     break;

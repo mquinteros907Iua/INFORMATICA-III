@@ -16,7 +16,6 @@ public class Pizzeria {
         consola.nextLine();
         Pedido nuevoPedido = new Pedido(nombreCliente, tiempoPreparacion, precioTotal);
         listadoPedidos.add(nuevoPedido);
-        consola.close();
     }
 
     public void mostrarPedidos(ArrayList<Pedido> listadoPedidos) {
@@ -25,6 +24,9 @@ public class Pizzeria {
             Pedido p = listadoPedidos.get(i);
             System.out.println(i + ". " + p.getNombreCliente() + " | Tiempo: " + p.getTiempoPreparacion()
                     + " min | Precio: $" + p.getPrecioTotal());
+        }
+        if(listadoPedidos.isEmpty()){
+            System.out.println("\nNo hay pedidos disponibles.");
         }
     }
 
@@ -41,7 +43,6 @@ public class Pizzeria {
         } else {
             System.out.println("Índice inválido. No se pudo eliminar el pedido.");
         }
-        consola.close();
     }
 
     public void modificarPedido(ArrayList<Pedido> listadoPedidos) {
@@ -68,7 +69,6 @@ public class Pizzeria {
         } else {
             System.out.println("Índice inválido. No se pudo modificar el pedido.");
         }
-        consola.close();
     }
 
 }

@@ -9,28 +9,28 @@ public class Pedido {
         this.precioTotal = precioTotal;
     }
 
-    public String setNombreCliente(String nuevoNombre){
-        return this.nombreCliente = nuevoNombre;
-    }
-
-    public String getNombreCliente(){
+    public String getNombreCliente() {
         return nombreCliente;
     }
 
-    public int setTiempoPreparacion(int tiempoPreparacion){
-        return this.tiempoPreparacion = tiempoPreparacion;
-    }
-
-    public int getTiempoPreparacion(){
+    public int getTiempoPreparacion() {
         return tiempoPreparacion;
     }
 
-    public double setPrecioTotal(double precioTotal){
-        return this.precioTotal = precioTotal;
-    }
-    
-    public double getPrecioTotal(){
+    public double getPrecioTotal() {
         return precioTotal;
+    }
+
+    public void setNombreCliente(String nuevoNombre) {
+        this.nombreCliente = nuevoNombre;
+    }
+
+    public void setTiempoPreparacion(int tiempoPreparacion) {
+        this.tiempoPreparacion = tiempoPreparacion;
+    }
+
+    public void setPrecioTotal(double precioTotal) {
+        this.precioTotal = precioTotal;
     }
 
     public String toString(){
