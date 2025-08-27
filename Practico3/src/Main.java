@@ -48,6 +48,19 @@ public class Main {
                     ordenador.ordenarPorTiempoPreparacion(listadoPedidos);
                     pizzeria.mostrarPedidos(listadoPedidos);
                     break;
+                case 5:
+                    ordenador.ordenarPorPrecioTotal(listadoPedidos);
+                    pizzeria.mostrarPedidos(listadoPedidos);
+                    break;
+                case 6:
+                    ordenador.ordenarPorNombreCliente(listadoPedidos);
+                    pizzeria.mostrarPedidos(listadoPedidos);
+                    break;
+                case 7:
+                    break;
+                case 0:
+                    System.out.println("Saliendo...");
+                    break;
                 default:
                     System.out.println("Opción inválida.\nPor favor, seleccione una opción válida.");
                     break;
