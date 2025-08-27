@@ -37,26 +37,38 @@ public class Main {
                     pizzeria.mostrarPedidos(listadoPedidos);
                     break;
                 case 2:
-                    pizzeria.eliminarPedido(listadoPedidos);
-                    pizzeria.mostrarPedidos(listadoPedidos);
+                    if (!listadoPedidos.isEmpty()) {
+                        pizzeria.eliminarPedido(listadoPedidos);
+                        pizzeria.mostrarPedidos(listadoPedidos);
+                    }
                     break;
                 case 3:
-                    pizzeria.modificarPedido(listadoPedidos);
-                    pizzeria.mostrarPedidos(listadoPedidos);
+                    if (!listadoPedidos.isEmpty()) {
+                        pizzeria.modificarPedido(listadoPedidos);
+                        pizzeria.mostrarPedidos(listadoPedidos);
+                    }
                     break;
                 case 4:
-                    ordenador.ordenarPorTiempoPreparacion(listadoPedidos);
-                    pizzeria.mostrarPedidos(listadoPedidos);
+                    if (!listadoPedidos.isEmpty()) {
+                        ordenador.ordenarPorTiempoPreparacion(listadoPedidos);
+                        pizzeria.mostrarPedidos(listadoPedidos);
+                    }
                     break;
                 case 5:
-                    ordenador.ordenarPorPrecioTotal(listadoPedidos);
-                    pizzeria.mostrarPedidos(listadoPedidos);
+                    if (!listadoPedidos.isEmpty()) {
+                        ordenador.ordenarPorPrecioTotal(listadoPedidos);
+                        pizzeria.mostrarPedidos(listadoPedidos);
+                    }
                     break;
                 case 6:
-                    ordenador.ordenarPorNombreCliente(listadoPedidos);
-                    pizzeria.mostrarPedidos(listadoPedidos);
+                    if (!listadoPedidos.isEmpty()) {
+                        ordenador.ordenarPorNombreCliente(listadoPedidos);
+                        pizzeria.mostrarPedidos(listadoPedidos);
+                    }
                     break;
                 case 7:
+                    TiempoOrdenamiento tiempoOrdenamiento = new TiempoOrdenamiento();
+                    tiempoOrdenamiento.probarOrdenamientos();
                     break;
                 case 0:
                     System.out.println("Saliendo...");
