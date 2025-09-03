@@ -1,17 +1,17 @@
-package Ejercicio4;
+package Ejercicio7;
 
-public class ColaArreglo {
+public class Cola {
     String [] cola = new String[100];
     int front = -1;
     int back = -1;
 
-    public void enqueue(String nombre){
+    public void enqueue(String documento){
         if(!isFull()){
             if(front == -1){
                 front++;
             }
             back++;
-            cola[back] = nombre;
+            cola[back] = documento;
         }
     }
 
@@ -44,9 +44,9 @@ public class ColaArreglo {
         }
     }
 
-    public void mostrarCola(){
+    public void mostrarCola(int topeMuestra){
         System.out.println("Contenido de la cola:");
-        for(int i=0; i < back; i++){
+        for(int i=0; i < topeMuestra; i++){
             System.out.println(cola[i] + " ");
         }
     }

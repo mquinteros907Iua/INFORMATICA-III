@@ -5,16 +5,16 @@ public class Main {
         ColaArreglo cola = new ColaArreglo();
 
         //Carga de clientes
-        cola.push("Ana");
-        cola.push("Luis");
-        cola.push("Marta");
-        cola.push("Pedro");
+        cola.enqueue("Ana");
+        cola.enqueue("Luis");
+        cola.enqueue("Marta");
+        cola.enqueue("Pedro");
 
         //Se atienden los dos primeros clientes
         cola.mostrarCola();
         System.out.println("\nSe atienden dos clientes:");
-        cola.pop();
-        cola.pop();
+        cola.dequeue();
+        cola.dequeue();
         cola.mostrarCola();
 
     }
