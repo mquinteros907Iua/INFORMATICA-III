@@ -1,8 +1,5 @@
 # 📘 Práctico 3 – Pila & Cola con Arreglos
 
-## Materia
-Informática III  
-
 ## Tema
 Estructuras de Datos – Pila y Cola con Arreglos  
 
