@@ -1,72 +1,43 @@
 package Ejercicio6;
 
-public class Pila<T> {
-    private Object[] datos;
-    private int tope;
+class Pila {
+    String pila[] = new String[100];
+    private int top = -1;
 
-    // Constructor
-    public Pila(int capacidad) {
-        if (capacidad <= 0) {
-            throw new IllegalArgumentException("La capacidad debe ser mayor a 0");
-        }
-        datos = new Object[capacidad];
-        tope = -1;
-    }
-
-    // Excepción personalizada para pila llena
-    public static class PilaLlenaException extends RuntimeException {
-        public PilaLlenaException(String msg) {
-            super(msg);
+    public void push(String texto) {
+        if (!isFull()) {
+            top++;
+            pila[top] = texto;
+        } else {
+            System.out.println("Pila llena");
         }
     }
 
-    // Push = apilar
-    public void push(T elem) {
-        if (tope == datos.length - 1) {
-            throw new PilaLlenaException("La pila está llena. No se puede apilar: " + elem);
+    public String pop() {
+        if (!isEmpty()) {
+            return pila[top--];
+        } else {
+            System.out.println("Pila vacía");
+            return null;
         }
-        datos[++tope] = elem;
     }
 
-    // Pop = desapilar
-    @SuppressWarnings("unchecked")
-    public T pop() {
-        if (estaVacia()) {
-            throw new java.util.EmptyStackException();
+    public boolean isEmpty() {
+        return top == -1;
+    }
+
+    public boolean isFull() {
+        return top == pila.length - 1;
+    }
+
+    public void mostrarPila(String nombre) {
+        System.out.println("Contenido de la pila " + nombre + ":");
+        if (!isEmpty()) {
+            for (int i = 0; i <= top; i++) {
+                System.out.println(" - " + pila[i]);
+            }
+        } else {
+            System.out.println("(vacía)");
         }
-        return (T) datos[tope--];
-    }
-
-    // Peek = cima
-    @SuppressWarnings("unchecked")
-    public T peek() {
-        if (estaVacia()) {
-            throw new java.util.EmptyStackException();
-        }
-        return (T) datos[tope];
-    }
-
-    public boolean estaVacia() {
-        return tope == -1;
-    }
-
-    public int size() {
-        return tope + 1;
-    }
-
-    public void clear() {
-        tope = -1;
-    }
-
-    @Override
-    public String toString() {
-        if (estaVacia()) return "[]";
-        StringBuilder sb = new StringBuilder("[");
-        for (int i = 0; i <= tope; i++) {
-            sb.append(datos[i]);
-            if (i < tope) sb.append(", ");
-        }
-        sb.append("]");
-        return sb.toString();
     }
 }
