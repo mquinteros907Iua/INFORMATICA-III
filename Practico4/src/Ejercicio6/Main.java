@@ -30,7 +30,7 @@ public class Main {
         Pila<String> pilaPalabras = new Pila<>(palabras.length);
         Pila<Accion> deshacer = new Pila<>(100);
         Pila<Accion> rehacer = new Pila<>(100);
-
+        //
         // Cargar palabras en orden inverso para que la primera quede arriba
         for (int i = palabras.length - 1; i >= 0; i--) {
             pilaPalabras.push(palabras[i]);
