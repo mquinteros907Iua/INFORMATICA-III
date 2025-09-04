@@ -10,6 +10,6 @@ public class Main {
         cola.enqueue(4);
 
         //Desencolando uno
-        cola.pop();
+        cola.dequeue();
     }
 }

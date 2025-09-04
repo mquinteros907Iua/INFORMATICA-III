@@ -18,7 +18,7 @@ public class Cola {
 
     }
 
-    public void pop(){
+    public void dequeue(){
         if(!isEmpty()){
             System.out.println("\nDesencolando el valor: " + cola[back]);
             back--;
