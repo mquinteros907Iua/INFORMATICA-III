@@ -1,21 +1,21 @@
 package structs;
 
-public class ListNode {
-    Node head; // primer nodo
-    int size; // cantidad de nodos
+public class ListNode<T>{
+    Node<T> head; // primer nodo
+    int size;     // cantidad de nodos
 
     public ListNode() {
         this.head = null;
         this.size = 0;
     }
 
-    public void insertarFinal(int dato) {
-        Node newNode = new Node(dato);
+    public void insertarFinal(T dato) {
+        Node<T> newNode = new Node<>(dato);
 
         if (head == null) {
             head = newNode;
         } else {
-            Node actual = head;
+            Node<T> actual = head;
             while (actual.siguiente != null) {
                 actual = actual.siguiente;
             }
@@ -24,40 +24,58 @@ public class ListNode {
         size++;
     }
 
-    public void insertarInicio(int dato) {
-        Node newNode = new Node(dato);
+    public void insertarInicio(T dato) {
+        Node<T> newNode = new Node<>(dato);
 
-        if (head == null) {
-            head = newNode;
-        } else {
-
-            newNode.siguiente = head;
-            head = newNode;
-
-        }
+        newNode.siguiente = head;
+        head = newNode;
         size++;
     }
 
-    public void eliminar(int dato) {
+    public void insertarEn(int posicion, T valor) {
+        Node<T> actual = head;
+        int contadorPosiciones = 0;
+
+        if (posicion < 0 || posicion > size) {
+            System.out.println("Posición inválida.");
+            return;
+        }
+
+        if (posicion == 0) {
+            insertarInicio(valor);
+            return;
+        }
+
+        while (actual != null) {
+            if (contadorPosiciones == posicion - 1) {
+                Node<T> newNode = new Node<>(valor);
+                newNode.siguiente = actual.siguiente;
+                actual.siguiente = newNode;
+                size++;
+                break;
+            }
+            actual = actual.siguiente;
+            contadorPosiciones++;
+        }
+    }
+
+    public void eliminar(T dato) {
         if (head == null) {
             System.out.println("La lista está vacía, no se puede eliminar.");
             return;
         }
 
-        // El nodo a eliminar es el primero
-        if (head.dato == dato) {
+        if (head.dato.equals(dato)) {
             head = head.siguiente;
             size--;
             return;
         }
 
-        // Recorrer para encontrar el nodo
-        Node actual = head;
-        while (actual.siguiente != null && actual.siguiente.dato != dato) {
+        Node<T> actual = head;
+        while (actual.siguiente != null && !actual.siguiente.dato.equals(dato)) {
             actual = actual.siguiente;
         }
 
-        // Si lo encontró, lo elimina
         if (actual.siguiente != null) {
             actual.siguiente = actual.siguiente.siguiente;
             size--;
@@ -66,17 +84,16 @@ public class ListNode {
         }
     }
 
-    public boolean buscar(int valor) {
-        Node actual = head;
+    public boolean buscar(T valor) {
+        Node<T> actual = head;
 
         while (actual != null) {
-            if (actual.dato == valor) {
-                return true; // está en la lista
+            if (actual.dato.equals(valor)) {
+                return true;
             }
             actual = actual.siguiente;
         }
-
-        return false; // no está en la lista
+        return false;
     }
 
     public int contar() {
@@ -84,22 +101,47 @@ public class ListNode {
     }
 
     public void invertir() {
-        Node prev = null;
-        Node actual = head;
-        Node next = null;
+        Node<T> prev = null;
+        Node<T> actual = head;
+        Node<T> next = null;
 
         while (actual != null) {
-            next = actual.siguiente; // Guardamos el siguiente
-            actual.siguiente = prev; // Invertimos el enlace
-            prev = actual; // Avanzamos prev
-            actual = next; // Avanzamos actual
+            next = actual.siguiente;
+            actual.siguiente = prev;
+            prev = actual;
+            actual = next;
         }
-
         head = prev;
     }
 
+    public void eliminarDuplicados() {
+        Node<T> actual = head;
+
+        if (head == null) {
+            System.out.println("La lista está vacía.");
+            return;
+        }
+
+        while (actual != null) {
+            Node<T> anterior = actual;
+            Node<T> auxiliar = actual.siguiente;
+
+            while (auxiliar != null) {
+                if (auxiliar.dato.equals(actual.dato)) {
+                    anterior.siguiente = auxiliar.siguiente;
+                    auxiliar = auxiliar.siguiente;
+                    size--;
+                } else {
+                    anterior = auxiliar;
+                    auxiliar = auxiliar.siguiente;
+                }
+            }
+            actual = actual.siguiente;
+        }
+    }
+
     public void imprimirLista() {
-        Node actual = head;
+        Node<T> actual = head;
 
         if (actual == null) {
             System.out.println("La lista está vacía.");

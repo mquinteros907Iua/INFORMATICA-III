@@ -1,4 +1,4 @@
-package Ejercicio7;
+package Ejercicio8;
 
 public class Main {
     @SuppressWarnings("unchecked")
@@ -8,15 +8,20 @@ public class Main {
 
         lista.insertarFinal(10);
         lista.insertarFinal(20);
-        lista.insertarFinal(30);
         lista.insertarFinal(40);
 
         System.out.print("Lista original: ");
         lista.imprimirLista();
 
-        lista.invertir();
-
-        System.out.print("Lista invertida: ");
+        // Insertar al inicio (pos = 0)
+        lista.insertarEn(0, 5);
+        System.out.print("Después de insertar 5 en posición 0: ");
         lista.imprimirLista();
+
+        // Insertar en el medio (pos = 2)
+        lista.insertarEn(2, 15);
+        System.out.print("Después de insertar 15 en posición 2: ");
+        lista.imprimirLista();
+
     }
 }

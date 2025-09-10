@@ -1,16 +1,12 @@
 package structs;
 
-public class Node {
-    int dato;
-    Node siguiente;
+public class Node<T> {
+    T dato;
+    Node<T> siguiente;
 
-    public Node(int dato) {
+    public Node(T dato) {
         this.dato = dato;
         this.siguiente = null;
     }
-
-    @Override
-    public String toString() {
-        return String.valueOf(dato);
-    }
+    
 }
