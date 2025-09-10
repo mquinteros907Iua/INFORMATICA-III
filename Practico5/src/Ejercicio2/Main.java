@@ -1,4 +1,4 @@
-package Ejercicio1;
+package Ejercicio2;
 
 import java.util.Scanner;
 import structs.Util;
@@ -14,7 +14,7 @@ public class Main {
         // Pedir al usuario 3 números enteros
         for (int i = 1; i <= 3; i++) {
             int valor = Util.leerEntero(sc, "Ingrese el valor del nodo " + i + ": ");
-            lista.insertarFinal(valor);
+            lista.insertarInicio(valor);
         }
 
         System.out.println("\nLista enlazada resultante:");

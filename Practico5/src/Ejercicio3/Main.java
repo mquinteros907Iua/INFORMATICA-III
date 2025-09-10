@@ -1,4 +1,4 @@
-package Ejercicio1;
+package Ejercicio3;
 
 import java.util.Scanner;
 import structs.Util;

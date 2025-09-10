@@ -1,4 +1,4 @@
-package Ejercicio1;
+package structs;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

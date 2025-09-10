@@ -1,4 +1,4 @@
-package Ejercicio1;
+package structs;
 
 public class Node {
     int dato;
