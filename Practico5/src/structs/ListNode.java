@@ -66,6 +66,38 @@ public class ListNode {
         }
     }
 
+    public boolean buscar(int valor) {
+        Node actual = head;
+
+        while (actual != null) {
+            if (actual.dato == valor) {
+                return true; // está en la lista
+            }
+            actual = actual.siguiente;
+        }
+
+        return false; // no está en la lista
+    }
+
+    public int contar() {
+        return size;
+    }
+
+    public void invertir() {
+        Node prev = null;
+        Node actual = head;
+        Node next = null;
+
+        while (actual != null) {
+            next = actual.siguiente; // Guardamos el siguiente
+            actual.siguiente = prev; // Invertimos el enlace
+            prev = actual; // Avanzamos prev
+            actual = next; // Avanzamos actual
+        }
+
+        head = prev;
+    }
+
     public void imprimirLista() {
         Node actual = head;
 
@@ -76,8 +108,8 @@ public class ListNode {
 
         while (actual != null) {
             System.out.print(actual.dato + " -> ");
-            actual = actual.siguiente; // avanzar al siguiente nodo
+            actual = actual.siguiente;
         }
-        System.out.println("null"); // fin de la lista
+        System.out.println("null");
     }
 }
