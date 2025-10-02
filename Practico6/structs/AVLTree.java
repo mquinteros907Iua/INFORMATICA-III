@@ -1,22 +1,5 @@
 package Practico6.structs;
 
-/**
- * Implementación de un Árbol AVL (Adelson-Velsky y Landis).
- * 
- * Un árbol AVL es un árbol binario de búsqueda autobalanceado donde la diferencia
- * de altura entre los subárboles izquierdo y derecho (factor de balance) de cualquier
- * nodo no puede ser mayor a 1.
- * 
- * Propiedades:
- * - Mantiene el balance automáticamente después de cada inserción y eliminación
- * - Garantiza operaciones de búsqueda, inserción y eliminación en O(log n)
- * - Factor de Balance = altura(subárbol izquierdo) - altura(subárbol derecho)
- * - Factor de Balance permitido: -1, 0, 1
- * 
- * @param <T> Tipo de datos que debe ser Comparable para mantener el orden
- * @author Sistema de Estructuras de Datos
- * @version 1.0
- */
 public class AVLTree<T extends Comparable<T>> {
     
     /**
